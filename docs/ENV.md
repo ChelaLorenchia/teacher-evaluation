@@ -31,6 +31,19 @@ Tiga variabel terakhir adalah konfigurasi/runtime notebook, bukan env vars yang 
 
 Gunakan [.env.example](../.env.example). File hanya memuat key nama variabel dengan nilai kosong; jangan menaruh key asli di dalamnya.
 
+## Google Drive backend (server only)
+
+| Variabel | Wajib | Penggunaan |
+|---|---|---|
+| `GOOGLE_SERVICE_ACCOUNT_EMAIL` | Untuk Drive API | Email service account. |
+| `GOOGLE_PRIVATE_KEY` | Untuk Drive API | Private key service account; simpan hanya di env hosting. Bila perlu, newline dapat di-escape sebagai `\n`. |
+| `GOOGLE_DRIVE_ROOT_FOLDER_ID` | Opsional | Root folder; default `1pTfZiAc0-H3Te3NvZsL5wUmb_fUaCf_B`. |
+| `DRIVE_ADMIN_TOKEN` | Operasi Admin | Rahasia bearer token untuk upload/update/delete, daftar jawaban, dan download jawaban. |
+| `DRIVE_TEACHER_UPLOAD_ENABLED` | Opsional | Set `true` hanya bila mengaktifkan upload jawaban Guru. Default nonaktif. |
+| `DRIVE_TEACHER_UPLOAD_TOKEN` | Jika upload Guru diaktifkan | Token upload bersama; bukan identitas per-Guru. |
+
+`GOOGLE_SERVICE_ACCOUNT_JSON` dan `GOOGLE_DRIVE_FOLDER_ID` tetap didukung sebagai nama lama, tetapi pilihan di atas adalah konfigurasi utama. Atur di Vercel Project Settings → Environment Variables, bukan di variabel `VITE_*`.
+
 ## Dokumen Terkait
 
 - [Installation](./INSTALLATION.md)
